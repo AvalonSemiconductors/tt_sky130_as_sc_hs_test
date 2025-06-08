@@ -581,7 +581,7 @@ class Project:
             harden_cmd = f"python -m openlane {arg_pdk_root} --docker-no-tty --dockerized --run-tag wokwi --force-run-dir runs/wokwi {arg_progress} src/config_merged.json"
             env = os.environ.copy()
         logging.info(f"The harden CMD is: {harden_cmd}")
-        p = subprocess.run("python -m openlane --help", shell=True, env=env)
+        p = subprocess.run("python -m openlane.steps --help", shell=True, env=env)
         p = subprocess.run(harden_cmd, shell=True, env=env)
         if p.returncode != 0:
             logging.error("harden failed")
