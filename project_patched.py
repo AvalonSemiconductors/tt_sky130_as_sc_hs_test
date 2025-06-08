@@ -589,12 +589,6 @@ class Project:
         if p.returncode != 0:
             logging.error("harden failed")
             exit(1)
-        setup_cmd = 'cp -R ./scl_patches/* $PDK_ROOT/volare/sky130/versions/*/sky130A/'
-        logging.info(f"The setup CMD is: {setup_cmd}")
-        p = subprocess.run(setup_cmd, shell=True, env=env)
-        if p.returncode != 0:
-            logging.error("harden failed")
-            exit(1)
         # Hopefully won’t fail
         p = subprocess.run(harden_cmd, shell=True, env=env)
         if p.returncode != 0:
