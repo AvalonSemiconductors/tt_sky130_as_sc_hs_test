@@ -36,7 +36,7 @@
   "RUN_CVC": 0,
   "NO_SYNTH_CELL_LIST": "dir::no_synth.cells",
   "EXTRA_GDS_FILES": [
-    "dir::sky130_as_sc_hs__merged.gds"
+    "$::env(PDK_ROOT)/$::env(PDK)/libs.ref/openlane/$::env(STD_CELL_LIBRARY)/sky130_as_sc_hs__merged.gds"
   ],
   "SYNTH_STRATEGY": "DELAY 4",
   "MAX_TRANSITION_CONSTRAINT": 0.5,
