@@ -14,7 +14,7 @@ jobs:
           submodules: recursive
 
       - name: Build GDS
-        uses: AvalonSemiconductors/tt_sky130_as_sc_hs_test/tt_gds_action_patched.yml@main
+        uses: AvalonSemiconductors/tt_sky130_as_sc_hs_test/tt_gds_action_patched@main
         with:
           flow: openlane2
 
