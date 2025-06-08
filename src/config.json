@@ -33,8 +33,7 @@
 
   "STD_CELL_LIBRARY": "sky130_as_sc_hs",
   "STD_CELL_LIBRARY_OPT": "sky130_as_sc_hs",
-  "RUN_CVC": 0,
-  "NO_SYNTH_CELL_LIST": "dir::no_synth.cells",
+  "SYNTH_EXCLUDED_CELL_FILE": "dir::no_synth.cells",
   "EXTRA_GDS_FILES": [
     "$::env(PDK_ROOT)/$::env(PDK)/libs.ref/openlane/$::env(STD_CELL_LIBRARY)/sky130_as_sc_hs__merged.gds"
   ],
