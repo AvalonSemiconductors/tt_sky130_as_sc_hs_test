@@ -541,6 +541,8 @@ class Project:
             write_config(config, "src/config_merged", ("mk",))
         else:
             write_config(config, "src/config_merged", ("json",))
+            
+        setup_cmd = "echo a"
 
         if self.args.orfs:
             logging.info("self.args.orfs")
@@ -578,10 +580,14 @@ class Project:
             os.makedirs("runs/wokwi", exist_ok=True)
             arg_progress = "--hide-progress-bar" if "CI" in os.environ else ""
             arg_pdk_root = '--pdk-root "$PDK_ROOT"' if "PDK_ROOT" in os.environ else ""
+            setup_cmd = f"python -m openlane.steps run --help"
             harden_cmd = f"python -m openlane {arg_pdk_root} --docker-no-tty --dockerized --run-tag wokwi --force-run-dir runs/wokwi {arg_progress} src/config_merged.json"
             env = os.environ.copy()
         logging.info(f"The harden CMD is: {harden_cmd}")
-        p = subprocess.run("python -m openlane.steps --help", shell=True, env=env)
+        p = subprocess.run(setup_cmd, shell=True, env=env)
+        if p.returncode != 0:
+            logging.error("harden failed")
+            exit(1)
         p = subprocess.run(harden_cmd, shell=True, env=env)
         if p.returncode != 0:
             logging.error("harden failed")
