@@ -580,7 +580,7 @@ class Project:
             os.makedirs("runs/wokwi", exist_ok=True)
             arg_progress = "--hide-progress-bar" if "CI" in os.environ else ""
             arg_pdk_root = '--pdk-root "$PDK_ROOT"' if "PDK_ROOT" in os.environ else ""
-            setup_cmd = f"python -m openlane.steps run setup --pdk-root {arg_pdk_root} --docker-no-tty --dockerized --run-tag wokwi --force-run-dir runs/wokwi {arg_progress} src/config_merged.json"
+            setup_cmd = f"python -m openlane.steps run setup --pdk-root {arg_pdk_root} --dockerized --run-tag wokwi --force-run-dir runs/wokwi {arg_progress} src/config_merged.json"
             harden_cmd = f"python -m openlane {arg_pdk_root} --docker-no-tty --dockerized --run-tag wokwi --force-run-dir runs/wokwi {arg_progress} src/config_merged.json"
             env = os.environ.copy()
         logging.info(f"The setup CMD is: {setup_cmd}")
