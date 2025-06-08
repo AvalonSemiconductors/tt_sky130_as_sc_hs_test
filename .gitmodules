@@ -1,0 +1,3 @@
+[submodule "sky130_as_sc_hs"]
+	path = sky130_as_sc_hs
+	url = https://github.com/AvalonSemiconductors/sky130_as_sc_hs
