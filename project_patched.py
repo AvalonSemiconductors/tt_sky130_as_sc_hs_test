@@ -1218,7 +1218,7 @@ class Project:
                     total += 1
                     cell_lib = m.group(1)
                     cell_name = m.group(2)
-                    assert cell_lib in ["fd_sc_hd", "ef_sc_hd", ""]
+                    assert cell_lib in ["fd_sc_hd", "ef_sc_hd", "as_sc_hs", ""]
                     try:
                         cell_count[cell_name] += 1
                     except KeyError:
