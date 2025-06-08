@@ -51,7 +51,7 @@ runs:
         
     - name: Patch tt-support-tools-repo
       shell: bash
-      run: cp project_patched.py ./tt/project.py
+      run: cp project_patched.py ./tt/project.py && cp categories_patched.json ./tt/categories.json
 
     - name: Setup python
       uses: actions/setup-python@v5
