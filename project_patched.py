@@ -525,6 +525,7 @@ class Project:
     def harden(self):
         cwd = os.getcwd()
         os.chdir(self.local_dir)
+        logging.info("project.harden()")
 
         repo = self.get_git_remote()
         commit_hash = self.get_git_commit_hash()
@@ -542,6 +543,7 @@ class Project:
             write_config(config, "src/config_merged", ("json",))
 
         if self.args.orfs:
+            logging.info("self.args.orfs")
             shutil.rmtree("runs/wokwi", ignore_errors=True)
             os.makedirs("runs/wokwi", exist_ok=True)
             cdl = os.path.join(
@@ -578,9 +580,7 @@ class Project:
             arg_pdk_root = '--pdk-root "$PDK_ROOT"' if "PDK_ROOT" in os.environ else ""
             harden_cmd = f"python -m openlane {arg_pdk_root} --docker-no-tty --dockerized --run-tag wokwi --force-run-dir runs/wokwi {arg_progress} src/config_merged.json"
             env = os.environ.copy()
-        print("The harden CMD is:")
-        print(harden_cmd)
-        logging.debug(harden_cmd)
+        logging.info(f"The harden CMD is: {harden_cmd}")
         p = subprocess.run(harden_cmd, shell=True, env=env)
         if p.returncode != 0:
             logging.error("harden failed")
