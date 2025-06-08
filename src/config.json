@@ -35,7 +35,7 @@
   "STD_CELL_LIBRARY_OPT": "sky130_as_sc_hs",
   "SYNTH_EXCLUDED_CELL_FILE": "dir::no_synth.cells",
   "EXTRA_GDS_FILES": [
-    "$::env(PDK_ROOT)/$::env(PDK)/libs.ref/openlane/$::env(STD_CELL_LIBRARY)/sky130_as_sc_hs__merged.gds"
+    "dir::../sky130_as_sc_hs/pdk/libs.ref/sky130_as_sc_hs/sky130_as_sc_hs__merged.gds"
   ],
   "SYNTH_STRATEGY": "DELAY 4",
   "MAX_TRANSITION_CONSTRAINT": 0.5,
