@@ -22,6 +22,7 @@ wire ROM_DI = ui_in[7];
 assign uio_out[7] = CS_ROM;
 assign uio_oe[7] = 1'b1;
 wire double_speed = ui_in[6];
+assign uio_out[6] = 1'b0;
 
 reg carry;
 reg zero;
