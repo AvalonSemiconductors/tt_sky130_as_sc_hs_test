@@ -50,6 +50,7 @@ runs:
         ref: "${{ inputs.tools-ref }}"
         
     - name: Patch tt-support-tools-repo
+      shell: bash
       run: cp project_patched.py ./tt/project.py
 
     - name: Setup python
