@@ -40,6 +40,12 @@
   "SYNTH_STRATEGY": "DELAY 4",
   "MAX_TRANSITION_CONSTRAINT": 0.5,
   "MAX_FANOUT_CONSTRAINT": 7,
+  "DEFAULT_CORNER": "nom_tt_025C_1v80",
+  "STA_CORNERS": [
+    "nom_ff_005C_1v90",
+    "nom_ss_055C_1v70",
+    "nom_tt_025C_1v80"
+  ],
 
   "//": "Configuration docs: https://openlane.readthedocs.io/en/latest/reference/configuration.html",
 
