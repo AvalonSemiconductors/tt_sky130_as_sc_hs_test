@@ -583,7 +583,7 @@ class Project:
         logging.info(f"The harden CMD is: {harden_cmd}")
         # WILL fail!
         p = subprocess.run(harden_cmd, shell=True, env=env)
-        setup_cmd = f"cp -R ./sky130_as_sc_hs/* {arg_pdk_root}/sky130A/"
+        setup_cmd = 'cp -R ./sky130_as_sc_hs/* $PDK_ROOT/sky130A/'
         logging.info(f"The setup CMD is: {setup_cmd}")
         p = subprocess.run(setup_cmd, shell=True, env=env)
         if p.returncode != 0:
