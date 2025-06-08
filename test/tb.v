@@ -4,7 +4,9 @@
 /* This testbench just instantiates the module and makes some convenient wires
    that can be driven / tested by the cocotb test.py.
 */
-module tb ();
+module tb (
+  output [5:0] gpio_port
+);
 
   // Dump the signals to a VCD file. You can view it with gtkwave or surfer.
   initial begin
@@ -27,8 +29,12 @@ module tb ();
   wire VGND = 1'b0;
 `endif
 
-  // Replace tt_um_example with your module name:
-  tt_um_example user_project (
+  assign uio_in[6] = 1'b0;
+  assign ui_in[6] = 1'b1;
+  assign gpio_port = uio_out[5:0] & uio_oe[5:0];
+  
+
+  tt_um_sky130_as_sc_hs user_project (
 
       // Include power ports for the Gate Level test:
 `ifdef GL_TEST
@@ -46,4 +52,15 @@ module tb ();
       .rst_n  (rst_n)     // not reset
   );
 
+  tri1 dat2;
+  tri1 dat3;
+  W25Q128JVxIM W25Q128JVxIM(
+    .CSn(uio_out[7]),
+    .CLK(uo_out[7]),
+    .DIO(uo_out[6]),
+    .DO(ui_in[7]),
+    .WPn(dat2),
+    .HOLDn(dat3)
+  );
+  
 endmodule
