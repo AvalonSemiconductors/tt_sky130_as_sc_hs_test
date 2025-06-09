@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2024 Your Name
+ * Copyright (c) 2025 Tholin
  * SPDX-License-Identifier: Apache-2.0
  */
 
@@ -53,6 +53,7 @@ assign uio_oe[5:0] = port_dirs;
 
 wire HCF = RAM[58] == 6'h2A && double_speed;
 
+`ifndef SIM
 (* keep = "true" *) sky130_as_sc_hs__hcf_10 hcf_1(
 	.HCF(HCF)
 );
@@ -64,6 +65,7 @@ wire HCF = RAM[58] == 6'h2A && double_speed;
 (* keep = "true" *) sky130_as_sc_hs__hcf_10 hcf_3(
 	.HCF(HCF)
 );
+`endif
 
 assign uio_oe[6] = 1'b0;
 wire inter = uio_in[6];
